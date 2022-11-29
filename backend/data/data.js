@@ -2,12 +2,12 @@ const bcrypt = require("bcryptjs");
 
 const chats = [];
 const users = [
-  {
-    name: "Ma Ma Lay Thiri",
-    email: "chartage@gmail.com",
-    password: "$2a$10$UFvUuTF7PduFiuekqdEdv.MvTuHTVS0MwCimlbedmEZ8ql4VQ5o/.",
-    _id: "63612b669c00953aa0215f7e",
-  },
+  // {
+  //   name: "Ma Ma Lay Thiri",
+  //   email: "chartage@gmail.com",
+  //   password: "$2a$10$UFvUuTF7PduFiuekqdEdv.MvTuHTVS0MwCimlbedmEZ8ql4VQ5o/.",
+  //   _id: "63612b669c00953aa0215f7e",
+  // },
   {
     name: "Piyush",
     email: "piyush@example.com",

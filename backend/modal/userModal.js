@@ -15,6 +15,10 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    isOnline: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestaps: true }
 );

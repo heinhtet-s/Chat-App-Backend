@@ -32,7 +32,6 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 const getUser = asyncHandler(async (req, res) => {
-  console.log(req);
   const keyward = req.query.search
     ? {
         $or: [
@@ -72,4 +71,5 @@ const authUser = asyncHandler(async (req, res) => {
     throw new Error("Password is incorrect");
   }
 });
+
 module.exports = { registerUser, getUser, authUser };

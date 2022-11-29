@@ -16,7 +16,7 @@ const accessChat = asyncHandler(async (req, res) => {
   })
     .populate("users", "-password")
     .populate("latestMessage");
-  console.log("isChant", isChat);
+
   isChat = await User.populate(isChat, {
     path: "latestMessage.sender",
     select: "name pic email",
@@ -60,7 +60,6 @@ const fetchChat = asyncHandler(async (req, res) => {
       .populate("groupAdmin", "-password")
       .sort({ updatedAt: -1 })
       .then(async (result) => {
-        console.log(result);
         result = await User.populate(result, {
           path: "latestMessage.sender",
           select: "name pic email",
@@ -79,7 +78,7 @@ const createGroupChat = asyncHandler(async (req, res) => {
   }
 
   var users = req.body.users;
-  console.log(users);
+
   if (users.length < 2) {
     res.status(400);
     throw new Error("Please enter atleast two users");
@@ -149,6 +148,21 @@ const deleteChat = asyncHandler(async (req, res) => {
     res.json(updateAt);
   }
 });
+const UpdateUserOnline = asyncHandler(async (req, res) => {
+  const { userId, isOnline } = req.body;
+  const updateAt = await User.findByIdAndUpdate(
+    userId,
+    { isOnline },
+    { new: true }
+  );
+  if (!updateAt) {
+    res.status(404);
+    throw new Error("User not found");
+  } else {
+    res.json(updateAt);
+  }
+});
+
 module.exports = {
   accessChat,
   fetchChat,
