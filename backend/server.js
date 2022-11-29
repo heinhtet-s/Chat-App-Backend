@@ -19,6 +19,10 @@ app.use("/", (req, res) => {
   res.send("o World");
   return;
 });
+app.get("/", (req, res) => {
+  res.send("Hello World");
+  return;
+});
 app.use("/api/user", userRoute);
 app.use("/api/chat", chatRoute);
 app.use("/api/message", messageRoute);
